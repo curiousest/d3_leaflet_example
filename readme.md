@@ -1,3 +1,3 @@
-This is a map that uses [leaflet.js](http://leafletjs.com/) and [d3.js](http://d3js.org/) in a way that combines the two so that the d3.js object stays fixed in relation to a geographic point but remains the same size on the screen. It is as used as an example in the book [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks).
+This is a map that uses [leaflet.js](http://leafletjs.com/) and [d3.js](http://d3js.org/) to display air quality data in China in bubbles.
 
-It is derived from the [Pere Roca Ristol example](http://bl.ocks.org/pere/3058935) but is simplified somewhat.
+It is derived from https://gist.github.com/d3noob/9267535.
