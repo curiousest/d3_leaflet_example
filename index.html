@@ -39,7 +39,7 @@
 	g = svg.append("g");
         base_radius = map.getZoom() * 2;
 
-	d3.json("city.json",
+	d3.json("city_63_km_radius_circles.json",
                 function(collection) {
 		  collection.forEach(function(d) {
 		    d.LatLng = new L.LatLng(d.lat,d.lon)
@@ -48,7 +48,7 @@
 		  var feature = g.selectAll("circle")
 		    .data(collection)
 		    .enter().append("circle")
-		    .style("opacity", .2)
+		    .style("opacity", 0.5 )
 		    .style("fill", "red")
 		    .attr("r", base_radius);
 
@@ -64,7 +64,13 @@
 				 }
 			        )
                     feature.attr("r", base_radius * Math.pow(2, (map.getZoom() - 4)))
+                    feature.style("opacity",
+                                 function(d) {
+                                   return (Math.min(d.aqi / 200, 1) * 0.5) / (1+(d.covered_area * 0.75));
+                                 })
 		  }
 	        })
-    </script></body>
+
+    </script>
+</body>
 </html>
