@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html
+   >
 <head>
 	<title>d3.js with leaflet.js</title>
 
@@ -14,11 +15,12 @@
     </script>
 
 </head>
-<body>
 
-	<div id="map" style="width: 600px; height: 400px"></div>
+	<div id="map" style="width: 600px; height: 400px"></div></body>
 
-	<script type="text/javascript">
+	
+<script
+   type="text/javascript">
 
         var map = L.map('map').setView([35, 103], 4);
         mapLink =
@@ -35,6 +37,7 @@
 	/* We simply pick up the SVG from the map object */
 	var svg = d3.select("#map").select("svg"),
 	g = svg.append("g");
+        base_radius = map.getZoom() * 4;
 
 	d3.json("city.json",
                 function(collection) {
@@ -47,7 +50,7 @@
 		    .enter().append("circle")
 		    .style("opacity", .2)
 		    .style("fill", "red")
-		    .attr("r", 20);
+		    .attr("r", base_radius);
 
 		  map.on("viewreset", update);
 		  update();
@@ -60,8 +63,8 @@
 				     map.latLngToLayerPoint(d.LatLng).y +")";
 				 }
 			        )
+                    feature.attr("r", base_radius * Math.pow(2, (map.getZoom() - 4)))
 		  }
 	        })
-           </script>
-    </body>
+    </script></body>
 </html>
