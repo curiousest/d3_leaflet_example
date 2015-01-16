@@ -37,7 +37,7 @@
 	/* We simply pick up the SVG from the map object */
 	var svg = d3.select("#map").select("svg"),
 	g = svg.append("g");
-        base_radius = map.getZoom() * 4;
+        base_radius = map.getZoom() * 2;
 
 	d3.json("city.json",
                 function(collection) {
